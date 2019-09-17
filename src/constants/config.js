@@ -1,7 +1,7 @@
 const config = {
   API_URL: {
     DEV_URL: "http://localhost:5000/api/",
-    PROD_URL: "loganbrown-api.heroku.com"
+    PROD_URL: "https://loganbrown-api.herokuapp.com/api"
   },
   ROUTES: {
     EDUCATION: {
