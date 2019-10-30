@@ -15,9 +15,7 @@ function BasicCard(props) {
 
   return (
     <Card className={classes.root}>
-      <div className="content flex-container-column flex-center">
-        {props.children}
-      </div>
+      <div className="content">{props.children}</div>
     </Card>
   );
 }
