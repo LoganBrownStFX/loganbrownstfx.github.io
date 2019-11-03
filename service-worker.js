@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/loganbrownstfx.github.io/precache-manifest.5e10dcdbc3b7263800cb83320be57907.js"
+  "/loganbrownstfx.github.io/precache-manifest.2f2ddddc7925cd12a4668efa049c4a42.js"
 );
 
 self.addEventListener('message', (event) => {
