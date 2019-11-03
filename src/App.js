@@ -9,7 +9,7 @@ import Landing from "./layout/Landing/Landing";
 import Navbar from "./layout/Navbar/Navbar";
 import Education from "./components/education/Education";
 import Github from "./components/github/Github";
-import Experience from "./components/Experience/Experience";
+import Experience from "./components/Experience/Experience.js";
 import Contact from "./components/contact/Contact";
 
 function App() {
