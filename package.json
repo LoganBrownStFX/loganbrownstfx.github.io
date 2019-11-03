@@ -25,7 +25,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "https://loganbrownstfx.github.io/loganbrownstfx.github.io",
+  "homepage": "http://loganbrownstfx.github.io/loganbrownstfx.github.io",
   "browserslist": {
     "production": [
       ">0.2%",
