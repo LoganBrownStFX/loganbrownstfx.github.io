@@ -4,12 +4,20 @@
   width: max-content;
 }
 .name {
-  color: #6200ee;
+  color: #ce93d8;
   font-size: 500%;
 }
 .slogan {
   color: #ffffff;
   font-size: 250%;
+}
+.main-button {
+  background-color: #ce93d8;
+  color: white;
+}
+.main-outline {
+  border: 1px solid #ce93d8;
+  color: #ce93d8;
 }
 @keyframes fadeInDown {
   from {

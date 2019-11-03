@@ -12,3 +12,11 @@ export async function getEducationCall() {
     };
   }
 }
+export async function getSkillCall() {
+  try {
+    let skillObj = await axios.get(config.API_URL.PROD_URL + "/skill");
+    return skillObj;
+  } catch (e) {
+    return { error: e.message };
+  }
+}

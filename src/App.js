@@ -9,7 +9,7 @@ import Landing from "./layout/Landing/Landing";
 import Navbar from "./layout/Navbar/Navbar";
 import Education from "./components/education/Education";
 import Github from "./components/github/Github";
-import Experience from "./components/experience/Experience";
+import Experience from "./components/Experience/Experience";
 import Contact from "./components/contact/Contact";
 
 function App() {
@@ -18,11 +18,13 @@ function App() {
       <Provider store={store}>
         <Router>
           <Navbar />
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/education" component={Education} />
-          <Route exact path="/github" component={Github} />
-          <Route exact path="/experience" component={Experience} />
-          <Route exact path="/contact" component={Contact} />
+          <div className="components">
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/education" component={Education} />
+            <Route exact path="/github" component={Github} />
+            <Route exact path="/experience" component={Experience} />
+            <Route exact path="/contact" component={Contact} />
+          </div>
         </Router>
       </Provider>
     </div>

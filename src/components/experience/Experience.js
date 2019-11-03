@@ -1,25 +1,36 @@
-import React from "react";
-import BasicCard from "../../layout/BasicCard/BasicCard";
-import strings from "../../constants/strings";
-import ExperienceBar from "./experienceBar/ExperienceBar";
+import React, { Component } from "react";
+import Skills from "./Skill/Skills";
 
-import useStyles from "./ExperienceStyles";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-function Experience() {
-  const classes = useStyles();
+import { getSkill } from "../../redux/actions/skillActions";
 
-  return (
-    <div className="flex-container-column flex-center">
-      <BasicCard>
-        <div className={`${classes.root} root`}>
-          <span className={`title`}>
-            {strings.pages.experience.skills.title}
-            <ExperienceBar></ExperienceBar>
-          </span>
-        </div>
-      </BasicCard>
-    </div>
-  );
+class Experience extends Component {
+  componentDidMount() {
+    this.props.getSkill();
+  }
+  render() {
+    const { skills } = this.props;
+    console.log(skills);
+    return (
+      <div>
+        <Skills />
+      </div>
+    );
+  }
 }
 
-export default Experience;
+Experience.propTypes = {
+  getSkill: PropTypes.func.isRequired,
+  skills: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  skills: state.skills
+});
+
+export default connect(
+  mapStateToProps,
+  { getSkill }
+)(Experience);

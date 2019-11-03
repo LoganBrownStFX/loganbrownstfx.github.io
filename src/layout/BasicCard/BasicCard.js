@@ -5,8 +5,8 @@ import Card from "@material-ui/core/Card";
 const useStyles = makeStyles({
   root: {
     backgroundColor: "#404040",
-    height: "25%",
-    width: "45%"
+    height: "50%",
+    width: "100%"
   }
 });
 
