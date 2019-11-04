@@ -5,7 +5,7 @@ import "./Navbar.css";
 
 function Navbar() {
   return (
-    <nav className="space-between navbar flex-container-row">
+    <div className="space-between navbar flex-container-row">
       <Link to="/">
         <div className="home-nav-container flex-container-column flex-center">
           <span className="link fas fa-home icon"></span>
@@ -28,7 +28,7 @@ function Navbar() {
           <span className="link fa contact-me fa-envelope icon"></span>
         </Link>
       </section>
-    </nav>
+    </div>
   );
 }
 

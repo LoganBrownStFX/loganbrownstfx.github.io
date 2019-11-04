@@ -1,9 +1,8 @@
 import { ADD_SKILL, GET_SKILL, SKILL_LOADING } from "../actions/types";
 
-const initialState = { skills: {}, loading: false };
+const initialState = { skills: {}, loading: true };
 
 export default function(state = initialState, action) {
-  console.log(action.type);
   switch (action.type) {
     case SKILL_LOADING: {
       return {
@@ -12,7 +11,6 @@ export default function(state = initialState, action) {
       };
     }
     case GET_SKILL: {
-      console.log(action.payload);
       return {
         ...state,
         loading: false,

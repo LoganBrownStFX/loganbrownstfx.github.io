@@ -12,8 +12,12 @@ const useStyles = makeStyles({
       opacity: "0.6",
       animation: [["fade-in-faded", "2s", "linear"]]
     },
-    "& .skill-bar-list": {
-      padding: "2em"
+    "& .skill-bar-list-container": {
+      padding: "2em",
+      "& .skill-bar-list": {
+        width: "100%",
+        margin: "0.5em"
+      }
     }
   }
 });

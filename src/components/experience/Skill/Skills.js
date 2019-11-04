@@ -4,42 +4,21 @@ import SkillBar from "./skillBar/SkillBar";
 
 import useStyles from "./SkillsStyles";
 
-function Skills() {
-  let skillList = [
-    {
-      type: "Java",
-      level: "80%"
-    },
-    {
-      type: "Node/Express",
-      level: "85%"
-    },
-    {
-      type: "React",
-      level: "90%"
-    },
-    {
-      type: "AngularJS",
-      level: "85%"
-    },
-    {
-      type: "C++",
-      level: "85%"
-    },
-    {
-      type: "Artificial Intelligence",
-      level: "92%"
-    }
-  ];
-
-  let skills = skillList.map(skill => (
-    <SkillBar key={skill.type} type={skill.type} level={skill.level} />
+function Skills(props) {
+  let { skills } = props.skillList;
+  let skillObj;
+  skillObj = skills.map(skill => (
+    <SkillBar
+      key={skill.skillType}
+      type={skill.skillType}
+      level={skill.level}
+    />
   ));
+
   const classes = useStyles();
 
   return (
     <div className="flex-container-column flex-center">
-      {/* <BasicCard> */}
       <div
         className={`${classes.root} root flex-conatainer-column flex-center`}
       >
@@ -49,9 +28,19 @@ function Skills() {
         <span className="skills-subtitle">
           {strings.pages.experience.skills.subtitle}
         </span>
-        <div className="skill-bar-list">{skills}</div>
+        <div className="skill-bar-list-container flex-container-row">
+          <div className="skill-bar-list">
+            {skillObj[0]}
+            {skillObj[2]}
+            {skillObj[4]}
+          </div>
+          <div className="skill-bar-list">
+            {skillObj[1]}
+            {skillObj[3]}
+            {skillObj[5]}
+          </div>
+        </div>
       </div>
-      {/* </BasicCard> */}
     </div>
   );
 }

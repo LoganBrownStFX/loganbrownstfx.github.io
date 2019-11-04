@@ -6,7 +6,6 @@ export function getSkill() {
     dispatch(skillLoading());
     try {
       const res = await getSkillCall();
-      console.log(res);
       dispatch({
         type: GET_SKILL,
         payload: res.data

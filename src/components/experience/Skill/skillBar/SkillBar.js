@@ -9,6 +9,8 @@ function ExperienceBar(props) {
 
   function componentDidMount() {
     self.current.querySelector(".value-bar").style.width = props.level;
+    self.current.querySelector(".label").style.flexBasis = props.level;
+    self.current.querySelector(".value").style.opacity = 1;
   }
 
   return (
