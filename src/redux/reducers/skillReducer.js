@@ -1,4 +1,4 @@
-import { ADD_SKILL, GET_SKILL, SKILL_LOADING } from "../actions/types";
+import { ADD_SKILL, GET_SKILL, SKILL_LOADING, SKILL_ERROR } from "../actions/types";
 
 const initialState = { skills: {}, loading: true };
 
@@ -16,6 +16,13 @@ export default function(state = initialState, action) {
         loading: false,
         skills: action.payload
       };
+    }
+    case SKILL_ERROR:{
+      return{
+        loading: false,
+        error: "No Skills Found"
+      }
+      
     }
     default: {
       return {

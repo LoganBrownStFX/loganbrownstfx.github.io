@@ -1,24 +1,31 @@
 import { getSkillCall } from "../../services/apiService";
-import { GET_SKILL, SKILL_LOADING } from "./types";
+import { GET_SKILL, SKILL_LOADING, SKILL_ERROR } from "./types";
 
-export function getSkill() {
+export function fetchSkill() {
   return async dispatch => {
     dispatch(skillLoading());
     try {
       const res = await getSkillCall();
-      dispatch({
-        type: GET_SKILL,
-        payload: res.data
-      });
+      dispatch(getSkills(res));
     } catch (e) {
-      dispatch({
-        type: GET_SKILL,
-        payload: {}
-      });
+      dispatch(giveError());
     }
   };
 }
-export const skillLoading = () => {
+
+const giveError = () =>{
+  return{
+    type: SKILL_ERROR,
+    payload: {}
+  }
+}
+const getSkills = (res) =>{
+  return{
+    type: GET_SKILL,
+    payload: res.data
+  }
+}
+const skillLoading = () => {
   return {
     type: SKILL_LOADING
   };

@@ -12,6 +12,9 @@ const strings = {
         title: "My Skills",
         subtitle:
           "Through my degree and 2 years of developing web applications I have built my skills to suit the modern development landscape"
+      },
+      who:{
+        title:"Who Am I"
       }
     }
   }

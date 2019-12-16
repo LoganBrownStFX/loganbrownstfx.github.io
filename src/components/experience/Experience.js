@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import Skills from "./Skill/Skills";
+import Who from "./Who/Who";
 import Spinner from "../Common/Spinner";
 
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { getSkill } from "../../redux/actions/skillActions";
+import { fetchSkill } from "../../redux/actions/skillActions";
 
 class Experience extends Component {
   componentDidMount() {
-    this.props.getSkill();
+    this.props.fetchSkill();
   }
   render() {
     const { skills } = this.props;
@@ -19,12 +20,18 @@ class Experience extends Component {
     } else {
       skillObject = <Skills skillList={skills} />;
     }
-    return <div>{skillObject}</div>;
+    return(
+      <div>
+        <div>{skillObject}</div>
+        <div><Who/></div>
+      </div>
+      
+    )
   }
 }
 
 Experience.propTypes = {
-  getSkill: PropTypes.func.isRequired,
+  fetchSkill: PropTypes.func.isRequired,
   skills: PropTypes.object.isRequired
 };
 
@@ -34,5 +41,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getSkill }
+  { fetchSkill }
 )(Experience);

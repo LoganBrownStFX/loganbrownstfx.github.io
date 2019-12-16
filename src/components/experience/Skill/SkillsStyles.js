@@ -14,6 +14,7 @@ const useStyles = makeStyles({
     },
     "& .skill-bar-list-container": {
       padding: "2em",
+      height: "fit-content",
       "& .skill-bar-list": {
         width: "100%",
         margin: "0.5em"
