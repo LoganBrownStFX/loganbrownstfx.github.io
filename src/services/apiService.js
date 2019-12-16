@@ -20,3 +20,11 @@ export async function getSkillCall() {
     return { error: e.message };
   }
 }
+export async function getWhoCall(){
+  try{
+    let whoObj = await axios.get(config.API_URL.PROD_URL + "/skill/who")
+    return whoObj;
+  }catch(e){
+    return { error: e.message }
+  }
+}

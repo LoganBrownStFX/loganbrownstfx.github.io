@@ -1,4 +1,4 @@
-import { ADD_SKILL, GET_SKILL, SKILL_LOADING, SKILL_ERROR } from "../actions/types";
+import { GET_SKILL, SKILL_LOADING, SKILL_ERROR } from "../actions/types";
 
 const initialState = { skills: {}, loading: true };
 
