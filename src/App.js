@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
 import { Provider } from "react-redux";
@@ -17,14 +17,19 @@ function App() {
     <div className="App">
       <Provider store={store}>
         <Router>
+          
           <Navbar />
           <div className="components">
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/education" component={Education} />
-            <Route exact path="/github" component={Github} />
-            <Route exact path="/experience" component={Experience} />
-            <Route exact path="/contact" component={Contact} />
+            <Switch>
+              <Route exact path="/" component={Landing} />
+              <Route exact path="/education" component={Education} />
+              <Route exact path="/github" component={Github} />
+              <Route exact path="/experience" component={Experience} />
+              <Route exact path="/contact" component={Contact} />
+              <Route path="*" component={Landing}/>
+            </Switch>
           </div>
+          
         </Router>
       </Provider>
     </div>

@@ -1,19 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import strings from "../../../constants/strings";
 import SkillBar from "./skillBar/SkillBar";
-
+import { fetchSkill } from "../../../redux/actions/skillActions";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import useStyles from "./SkillsStyles";
+import Spinner from "../../Common/Spinner";
 
 function Skills(props) {
-  let { skills } = props.skillList;
+
+  useEffect(()=>{
+    props.fetchSkill();
+  }, [])
+
+
+  let  skillList  = props.skills;
   let skillObj;
-  skillObj = skills.map(skill => (
-    <SkillBar
-      key={skill.skillType}
-      type={skill.skillType}
-      level={skill.level}
-    />
-  ));
+  if(skillList.loading){
+    skillObj = <Spinner/>
+  }else{
+    skillObj = skillList.skills.map(skill => (
+      <SkillBar
+        key={skill.skillType}
+        type={skill.skillType}
+        level={skill.level}
+      />
+    ));
+  }
+  
 
   const classes = useStyles();
 
@@ -44,5 +58,13 @@ function Skills(props) {
     </div>
   );
 }
+Skills.propTypes = {
+  fetchSkill: PropTypes.func.isRequired,
+  skills: PropTypes.object.isRequired
+};
 
-export default Skills;
+const mapStateToProps = state => ({
+  skills: state.skills
+})
+
+export default connect(mapStateToProps,{ fetchSkill })(Skills);
