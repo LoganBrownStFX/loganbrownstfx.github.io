@@ -1,7 +1,7 @@
 import { GET_COMMITS, GITHUB_LOADING} from "../actions/types";
 
 
-const initialState = { github: {} , loading: true}
+const initialState = { commits: {} , loading: true}
 
 export default function(state = initialState, action){
     switch (action.type){

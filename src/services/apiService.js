@@ -28,3 +28,12 @@ export async function getWhoCall(){
     return { error: e.message }
   }
 }
+export const getCommits = async () =>{
+  let commitObj;
+  try{
+    commitObj = await axios.get(config.API_URL.PROD_URL + "/github/commits");
+  } catch(e){
+    throw e;
+  }
+  return commitObj;
+}
