@@ -3,7 +3,10 @@ import { connect } from "react-redux";
 import { fetchCommits } from "../../redux/actions/githubActions";
 import Spinner from "../Common/Spinner";
 import BasicCard from "../../layout/BasicCard/BasicCard";
-import "./Github.css";
+import Commits from "./Commits";
+import { withStyles } from "@material-ui/core";
+import { GithubStyles } from "./GithubStyles";
+
 
 class Github extends Component {
 
@@ -12,17 +15,22 @@ class Github extends Component {
   }
 
   render(){
-    const { github } = this.props;
-    let commits;
-    console.log(github);
-    if (github.loading || !github.github || !github.github.commits) {
-      commits = <Spinner />;
+    const { commits, loading} = this.props;
+    let commitsObj;
+    if (loading || !commits) {
+      commitsObj = <Spinner />;
     } else {
-      commits = <span>{github.github.commits.length}</span>;
+      commitsObj = <span>{commits[0].message}</span>;
     }
     return (
-      <div className="flex-container-column flex-center">
-        <BasicCard>{commits}</BasicCard>
+      <div className={`flex-container-row flex-center ${this.props.classes.root}`}>
+        <div className={`column-container flex-container-column flex-center`}>
+          <Commits/>
+        </div>
+        <div className={`column-container flex-container-column flex-center`}>
+          <BasicCard>{commitsObj}</BasicCard>
+        </div>
+        
       </div>
     );
   }
@@ -31,8 +39,8 @@ class Github extends Component {
 
 const mapStateToProps = state => ({
   github: state.github,
-  // commits: state.github.github.commits,
-  // loading: state.github.loading
+  commits: state.github.github.commits,
+  loading: state.github.loading
 })
 
-export default connect(mapStateToProps, {fetchCommits})(Github);
+export default withStyles(GithubStyles)(connect(mapStateToProps, {fetchCommits})(Github));
